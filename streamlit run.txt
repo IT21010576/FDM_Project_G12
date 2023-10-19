@@ -1,0 +1,1 @@
+streamlit run "C:\Users\DELL\Desktop\Miniproject\schooldropout_pred.py"
