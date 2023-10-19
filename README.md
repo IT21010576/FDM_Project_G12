@@ -1,10 +1,10 @@
 # FDM_Project_G12
 # Group Members
 
-# IT21010576 Pathirana S.R
-# IT21066870 Ratnayake B. R. M. P.
-# IT21039904 Dayawansa S.D.
-# IT21146206 Dias L.A.N.Y.
+#IT21010576 Pathirana S.R
+#IT21066870 Ratnayake B. R. M. P.
+#IT21039904 Dayawansa S.D.
+#IT21146206 Dias L.A.N.Y.
 
 
 Project Description 
