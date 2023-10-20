@@ -1,1 +1,1 @@
-streamlit run "C:\Users\DELL\Desktop\Miniproject\schooldropout_pred.py"
+streamlit run "C:\Users\DELL\Documents\FDMminiProject\schooldropout_pred.py"
