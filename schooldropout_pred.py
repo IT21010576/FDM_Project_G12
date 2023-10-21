@@ -11,7 +11,7 @@ st.set_page_config(page_title="Edufate", page_icon="🎓", layout="wide")
 
 
 # loading the saved model
-with open('C:/Users/DELL/Desktop/Miniproject/StudentDropout_Prediction_model.model', 'rb') as file:
+with open('C:/Users/DELL/Documents/FDMminiProject/StudentDropout_Prediction_model.model', 'rb') as file:
     loaded_model = pickle.load(file)
 
 # sidebar for navigation
@@ -27,10 +27,10 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 # Add the sidebar with the specified styling
 with st.sidebar:
-    st.title("Predicting Educational Dropout")
+    st.title("Predicting Students' Success")
     selected = option_menu('Navigation',
-                           ['Prediction','Visualized Trends'],
-                           icons=['mortarboard', 'bi bi-graph-up-arrow'],
+                           ['Home','Prediction','Dropout Trends'],
+                           icons=['bi bi-house','mortarboard', 'bi bi-graph-up-arrow'],
                            default_index=0)
 
 # Prediction page
@@ -229,7 +229,10 @@ if (selected == 'Prediction'):
             # Convert prediction to a float and format it
             prediction = float(prediction)
             result = '🚀 Student is NOT a DROPOUT! 🌟' if prediction == 0.0 else '🚨 Student is a DROPOUT 😥'
-            st.write(f'Predicted Outcome: {result}')
+            
+            # Use Streamlit to format the output
+            st.markdown(f'<h1 style="font-size: 36px; text-align: center;">Predicted Outcome</h1>', unsafe_allow_html=True)
+            st.markdown(f'<p style="font-size: 24px; text-align: center;">{result}</p>', unsafe_allow_html=True)
             
             # Add space between prediction and the visual
             st.write("")
@@ -275,9 +278,9 @@ if (selected == 'Prediction'):
         else:
             st.error('Please fill in all mandatory input fields.')
     
-if(selected == 'Visualized Trends'):
+if(selected == 'Dropout Trends'):
     # Load historical data
-    file_path = "C:/Users/DELL/Desktop/Miniproject/SchoolDropout.csv"
+    file_path = "C:/Users/DELL/Documents/FDMminiProject/SchoolDropout.csv"
     data = pd.read_csv(file_path)
     
  
@@ -315,3 +318,40 @@ if(selected == 'Visualized Trends'):
             plt.pie(dropout_percentages, labels=dropout_percentages.index, autopct='%1.1f%%', startangle=90)
             plt.title(f"Dropout Percentage by {selected_feature}")
             st.pyplot(plt)
+            
+# Home page
+if (selected == 'Home'):
+    
+    # Define the layout using HTML and CSS
+    page_bg = """
+    <style>
+        .stApp {
+            background: linear-gradient(to bottom right, #3498db, #a6c0cd);
+            color: white;
+            padding: 0.5rem 2rem;
+        }
+        .stApp h1 {
+            font-size: 3rem;
+            text-align: center;
+        }
+        .stApp p {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .stApp img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            height: auto;
+        }
+    </style>
+    """
+    
+    st.markdown(page_bg, unsafe_allow_html=True)
+    
+    # Header
+    st.image("logo.png", caption=" ", use_column_width=True)
+
+    
