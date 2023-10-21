@@ -229,7 +229,10 @@ if (selected == 'Prediction'):
             # Convert prediction to a float and format it
             prediction = float(prediction)
             result = '🚀 Student is NOT a DROPOUT! 🌟' if prediction == 0.0 else '🚨 Student is a DROPOUT 😥'
-            st.write(f'Predicted Outcome: {result}')
+            
+            # Use Streamlit to format the output
+            st.markdown(f'<h1 style="font-size: 36px; text-align: center;">Predicted Outcome</h1>', unsafe_allow_html=True)
+            st.markdown(f'<p style="font-size: 24px; text-align: center;">{result}</p>', unsafe_allow_html=True)
             
             # Add space between prediction and the visual
             st.write("")
